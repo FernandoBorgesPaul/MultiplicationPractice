@@ -7,42 +7,48 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class ViewController: UIViewController {
-    
-    //MARK: - Variables
-    var randNumber1 = Int.random(in: 1...10)
-    var randNumber2 = Int.random(in: 1...10)
-   
-    
+
     //MARK: - IBOutlets
     @IBOutlet weak var multiplicationLabel: UILabel!
     
     @IBOutlet weak var answerField: UITextField!
     
+    var result = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+       updateMultiplicationLabel()
         
-        multiplicationLabel.text = "\(randNumber1) * \(randNumber2)"
     }
     
     //Button method
     
-    @IBAction func buttonPressed(_ sender: UIButton) {
-       /*if answerField is equal to randomnumber then it will print correct answer */
-        multiplicationLabel.text = "\(randNumber1) * \(randNumber2)"
+    @IBAction func buttonPressed(_ sender: AnyObject) {
         
-        let num1 = randNumber1
-        let num2 = randNumber2
-        
-        let result = String(num1 * num2)
-        
-        if(result == answerField.text!) {
-           print("Correct!")
+        if(String(result) == answerField.text! ) {
+            answerField.text! = ""
+            ProgressHUD.showSuccess("Correcto!")
+        } else {
+            answerField.text! = ""
+            ProgressHUD.showError("Error!")
+            
         }
+        updateMultiplicationLabel()
+    }
+    
+
+//MARK
+    func updateMultiplicationLabel() {
         
-        print(result)
+        let num1 = Int.random(in: 1...10)
+        let num2 = Int.random(in: 1...10)
+        
+        multiplicationLabel.text! = "\(num1) * \(num2)"
+        
+        result = num1 * num2
     }
 }
