@@ -101,6 +101,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Counter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIy-9a-0mj">
+                                <rect key="frame" x="226" y="418" width="129" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="Tpc-Gw-5bj"/>
+                                    <constraint firstAttribute="width" constant="129" id="lpC-75-Z4b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="0.66906571061643838" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -109,6 +119,7 @@
                             <constraint firstItem="CVq-Am-0Y9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="9tr-16-4Lq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rxJ-mj-Mih" secondAttribute="trailing" constant="20" id="IF4-XN-ZaW"/>
                             <constraint firstItem="LXm-ZI-g8u" firstAttribute="leading" secondItem="nuw-I6-9EA" secondAttribute="trailing" constant="15" id="JH4-fA-UJL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bIy-9a-0mj" secondAttribute="trailing" constant="20" id="JWK-32-Jtc"/>
                             <constraint firstItem="80Q-uO-wSk" firstAttribute="top" secondItem="CVq-Am-0Y9" secondAttribute="bottom" constant="23" id="K3n-2B-gVA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="80Q-uO-wSk" secondAttribute="trailing" constant="20" id="KFl-3n-c3H"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CVq-Am-0Y9" secondAttribute="trailing" constant="20" id="KnD-jn-gUJ"/>
@@ -127,6 +138,7 @@
                             <constraint firstItem="1c4-a4-yht" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="moU-Ad-btC"/>
                             <constraint firstItem="rxJ-mj-Mih" firstAttribute="top" secondItem="cN4-pV-KFF" secondAttribute="bottom" constant="20" id="oFc-pT-TRQ"/>
                             <constraint firstItem="cN4-pV-KFF" firstAttribute="top" secondItem="nuw-I6-9EA" secondAttribute="bottom" constant="12" id="uyy-i0-VSc"/>
+                            <constraint firstItem="bIy-9a-0mj" firstAttribute="top" secondItem="rxJ-mj-Mih" secondAttribute="bottom" constant="8" id="wVy-xV-6HN"/>
                             <constraint firstItem="CVq-Am-0Y9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="zuP-4Z-At5"/>
                         </constraints>
                         <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
@@ -134,6 +146,7 @@
                     </view>
                     <connections>
                         <outlet property="answerField" destination="LXm-ZI-g8u" id="xet-vg-5z5"/>
+                        <outlet property="counterLabel" destination="bIy-9a-0mj" id="nug-Zl-qXl"/>
                         <outlet property="multiplicationLabel" destination="nuw-I6-9EA" id="kKi-gf-kTj"/>
                         <outlet property="scoreLabel" destination="rxJ-mj-Mih" id="gCV-1b-MJM"/>
                     </connections>

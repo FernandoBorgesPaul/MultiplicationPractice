@@ -18,9 +18,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var scoreLabel: UILabel!
     
+    @IBOutlet weak var counterLabel: UILabel!
+    
+    
     //MARK: - Global Variables
     var result = 0
     var score = 0
+    var counter = 1
     
     //MARK:- viewDidLoad
     
@@ -28,6 +32,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         updateMultiplicationLabel()
+        counterLabel.text! = "1/10"
     }
     
     //MARK:- Button Implementation
@@ -42,11 +47,26 @@ class ViewController: UIViewController {
             answerField.text! = ""
             ProgressHUD.showSuccess("Correcto!")
             sumPoints()
+            addCount()
         } else {
             answerField.text! = ""
             ProgressHUD.showError("Incorrecto!")
-            
+            addCount()
         }
+        
+        if(counter > 10) {
+            
+            ProgressHUD.dismiss()
+            let alert = UIAlertController(title: "Juego Finalizado!", message: "Obtuviste \(score) correctas de 10!", preferredStyle: .alert)
+            
+            let restartAction = UIAlertAction(title: "Empezar de nuevo", style: .default) { (UIAlertAction) in
+                self.startOver()
+            }
+            alert.addAction(restartAction)
+            
+            present(alert,animated:true)
+        }
+        
         updateMultiplicationLabel()
     }
     
@@ -61,10 +81,23 @@ class ViewController: UIViewController {
         
         result = num1 * num2                             // Multiply both random numbers
     }
+    //MARK:- Methods to add points, count and restart.
     
     func sumPoints(){                      // This function is called everytime the user gets a correct answer
         score = score + 1                  // and updates de intercafe form the scoreLabel.
         scoreLabel.text! = String(score)
     }
     
+    func addCount() {                            // This method will be increasing every time the user passes to another round.
+        counter = counter + 1
+        counterLabel.text! = "\(counter)/10"
+    }
+    
+    func startOver() {                          // This method will restart the game in the alert when user presses "Empezar de
+        score = 0                               // nuevo" as well as the score, counter, etc.
+        counter = 1
+        scoreLabel.text! = "\(score)"
+        counterLabel.text! = "\(counter)/10"
+        updateMultiplicationLabel()
+    }
 }
